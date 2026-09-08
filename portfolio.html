@@ -3,77 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryad Slimani | Portfolio Cyber & SysAdmin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Portfolio - Slimani Riyad</title>
+    <!-- Favicon personnalisé (remplace href par ton fichier d'icône si besoin) -->
+    <link rel="icon" type="image/png" href="img/RS.png">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
 
+    <!-- Arrière-plan animé et scanlines -->
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+
+    <!-- Curseur suiveur personnalisé -->
+    <div class="custom-cursor"></div>
+
     <header>
-        <div class="logo">⚡ Ryad Slimani</div>
+        <div class="logo">
+            <span class="terminal-prompt">&gt;</span> RS <span class="blink">_</span>
+        </div>
         <nav>
-            <a href="#projects">Projets</a>
-            <a href="#skills">Compétences</a>
-            <a href="https://github.com/ryadslimani" target="_blank">GitHub</a>
+            <a href="#about">[ À PROPOS ]</a>
+            <a href="#experience">[ EXPÉRIENCE ]</a>
+            <a href="#projects">[ PROJETS ]</a>
+            <a href="#certifications">[ CERTIFICATIONS ]</a>
+            <a href="#contact">[ CONTACT ]</a>
         </nav>
     </header>
 
     <div class="container">
-        <div class="hero">
+
+        <!-- Hero Section -->
+        <div class="hero" id="home">
+            
             <div class="badge-status">
-                <span class="dot"></span> Ouvert aux opportunités & alternances
+                <span class="dot"></span> STATUS: BACHELOR CYBERSECURITÉ EPITA (2026-2027) — PERSPECTIVE MASTER EN ALTERNANCE (2027-2029)
             </div>
-            <h1>Cybersécurité, Réseaux & Systèmes</h1>
-            <p>Diplômé d'un BTS CIEL, passionné par l'administration Linux, l'architecture réseau et le développement d'outils de supervision automatisés.</p>
+            <h1>Ryad Slimani</h1>
+            
+            <!-- Ligne sous-titre avec l'animation de frappe -->
+            <div class="subtitle">
+                <span id="typed-text"></span><span class="cursor-blink">_</span>
+            </div>
+
+            <p class="location">Île-de-France, France — Actuellement en Bachelor Cybersécurité <span class="glitch-text" data-text="@ EPITA">@ EPITA</span></p>
+            
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary">VOIR MES PROJETS</a>
+                <a href="#contact" class="btn-secondary">ME CONTACTER</a>
+            </div>
+
+            <!-- Indicateur de scroll -->
+            <div class="scroll-indicator">
+                SCROLL
+                <span>&darr;</span>
+            </div>
         </div>
 
+        <!-- À Propos -->
+        <section id="about">
+            <h2><span class="section-num">01 —</span> À PROPOS</h2>
+            
+            <div class="about-wrapper">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>Qui suis-je ?</h3>
+                        <p>Passionné de tech depuis tout petit, je m'oriente vers la cybersécurité et l'administration système avancée pour protéger les infrastructures et anticiper les menaces.</p>
+                        <p>Formé à l'EPITA et fort d'une première expérience en environnement industriel critique chez X-FAB, je développe une expertise technique rigoureuse, combinant l'administration Linux, le durcissement de réseaux et le scripting d'automatisation.</p>
+                    </div>
+                    <div class="about-terminal">
+                        <div class="terminal-box-sm">
+                            <p class="t-line"><span class="t-prompt">$</span> whoami</p>
+                            <p class="t-line text-muted">Ryad Slimani — Étudiant en Cybersécurité & Systèmes</p>
+                            <p class="t-line"><span class="t-prompt">$</span> cat formation.txt</p>
+                            <p class="t-line text-muted">EPITA — Bachelor Cybersécurité (2026-2027)</p>
+                            <p class="t-line"><span class="t-prompt">$</span> status.txt</p>
+                            <p class="t-line text-green">Perspective Master Alternance (2027-2029)</p>
+                            <p class="t-line"><span class="t-prompt">$</span> <span class="blink">_</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="system-metrics">
+                    <div class="metric-box">
+                        <span class="metric-val">EPITA</span>
+                        <span class="metric-label">Cursus Actuel</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-val">2</span>
+                        <span class="metric-label">Certifications Validées</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-val">2027-2029</span>
+                        <span class="metric-label">Objectif Master Alternance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expérience -->
+        <section id="experience">
+            <h2><span class="section-num">02 —</span> EXPÉRIENCE</h2>
+            <div class="card full-width">
+                <div class="card-header-tag">STAGE TECHNIQUE</div>
+                <h3>X-FAB — Technicien Support & Infrastructure</h3>
+                <p class="card-date">2026</p>
+                <p>Migration d'infrastructure IT, déploiement automatisé d'images système via MDT/WDS, intégration Active Directory, et résolution de tickets de support N1/N2 en environnement industriel critique.</p>
+                <div class="tags">
+                    <span class="tag">Active Directory</span>
+                    <span class="tag">MDT / WDS</span>
+                    <span class="tag">Support N1/N2</span>
+                    <span class="tag">Migration IT</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projets -->
         <section id="projects">
-            <h2>🛡️ Projets Phares</h2>
+            <h2><span class="section-num">03 —</span> PROJETS</h2>
             <div class="grid">
                 <div class="card">
+                    <div class="card-header-tag">SEC-TOOL // 01</div>
                     <h3>Net-Monitor-Dashboard</h3>
                     <p>Tableau de bord de surveillance réseau en temps réel combinant un sondeur TCP bas niveau en Python et une interface web Flask (style SOC).</p>
                     <div class="tags">
                         <span class="tag">Python</span>
                         <span class="tag">Flask</span>
                         <span class="tag">Sockets TCP</span>
-                        <span class="tag">HTML/CSS</span>
                     </div>
-                    <a href="https://github.com/ryadslimani" target="_blank" class="btn-link">Voir sur GitHub &rarr;</a>
+                    <a href="https://github.com/ryadslimani" target="_blank" class="btn-link">Accéder au dépôt &rarr;</a>
                 </div>
 
                 <div class="card">
-                    <h3>Vigipark</h3>
-                    <p>Système intelligent de gestion et de sécurité de parking intégrant la reconnaissance de plaques (OCR), un flux vidéo et une base MySQL.</p>
+                    <div class="card-header-tag">OFFSEC // 02</div>
+                    <h3>Purple-Scan-Lab</h3>
+                    <p>Plateforme de simulation d'attaques et d'analyse de vulnérabilités réseau automatisée, conçue pour tester la résilience des infrastructures Linux.</p>
                     <div class="tags">
                         <span class="tag">Python</span>
-                        <span class="tag">MySQL</span>
-                        <span class="tag">Raspberry Pi</span>
-                        <span class="tag">SysML</span>
+                        <span class="tag">Bash</span>
+                        <span class="tag">Network Security</span>
                     </div>
-                    <a href="https://github.com/ryadslimani" target="_blank" class="btn-link">Voir sur GitHub &rarr;</a>
+                    <a href="https://github.com/ryadslimani" target="_blank" class="btn-link">Accéder au dépôt &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header-tag">IAM-SEC // 03</div>
+                    <h3>Secure-Auth-Portal</h3>
+                    <p>Portail d'authentification renforcé intégrant une gestion rigoureuse des sessions, un journal d'audit des connexions et des politiques de mots de passe stricts.</p>
+                    <div class="tags">
+                        <span class="tag">PHP</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Security</span>
+                    </div>
+                    <a href="https://github.com/ryadslimani" target="_blank" class="btn-link">Accéder au dépôt &rarr;</a>
                 </div>
             </div>
         </section>
 
-        <section id="skills">
-            <h2>⚙️ Stack Technique</h2>
+        <!-- Certifications -->
+        <section id="certifications">
+            <h2><span class="section-num">04 —</span> CERTIFICATIONS</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>Systèmes & Réseaux</h3>
-                    <p>Administration Linux, Active Directory, déploiement d'images système (MDT/WDS), protocoles réseaux et routage.</p>
+                    <div class="card-header-tag">CISCO NETWORKING ACADEMY</div>
+                    <h3>Introduction to Cybersecurity</h3>
+                    <p>Validation des concepts fondamentaux de la sécurité des réseaux, de la protection des données et de la sensibilisation aux menaces cyber.</p>
+                    <div class="tags">
+                        <span class="tag">Cisco</span>
+                        <span class="tag">Cybersecurity</span>
+                    </div>
                 </div>
+
                 <div class="card">
-                    <h3>Développement & Outils</h3>
-                    <p>Python, C++, Java, PHP, SQL, Git/GitHub, Docker, Visual Studio Code.</p>
+                    <div class="card-header-tag">IBM</div>
+                    <h3>Introduction to Cloud</h3>
+                    <p>Maîtrise des principes fondamentaux du Cloud Computing, des modèles de déploiement et des services d'infrastructure associés.</p>
+                    <div class="tags">
+                        <span class="tag">IBM</span>
+                        <span class="tag">Cloud Computing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2><span class="section-num">05 —</span> CONTACT</h2>
+            <div class="contact-wrapper">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Envie d'échanger ?</h3>
+                        <p>Les meilleures connexions ne sont pas toujours chiffrées. Stage, opportunité pro ou simple discussion autour de la cybersécurité, n'hésite pas à me contacter.</p>
+                        
+                        <div class="contact-links-list">
+                            <a href="mailto:slimanir.ryad@gmail.com" class="contact-link-item">
+                                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                <span class="email-link">slimanir.ryad@gmail.com</span>
+                            </a>
+                            <a href="https://github.com/ryadslimani" target="_blank" class="contact-link-item">
+                                <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>Profil GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com" target="_blank" class="contact-link-item">
+                                <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                <span>Profil LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form action="send-mail.php" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Votre nom" required>
+                                <input type="email" name="email" placeholder="votre@email.com" required>
+                            </div>
+                            <input type="text" name="subject" placeholder="Sujet de votre message" class="form-full" required>
+                            <textarea name="message" placeholder="Votre message..." rows="5" class="form-full" required></textarea>
+                            <button type="submit" class="btn-primary">ENVOYER LE MESSAGE</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; <span id="current-year"></span> Ryad Slimani — Conçu avec rigueur et simplicité.</p>
+        <p>&copy; <span id="current-year">2026</span> Ryad Slimani — Tous droits réservés</p>
     </footer>
+
+    <!-- Bouton Retour en haut -->
+    <a href="#home" class="back-to-top" id="backToTopBtn">&uarr;</a>
 
     <script src="portfolio.js"></script>
 </body>
