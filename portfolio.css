@@ -636,6 +636,96 @@ body.hovering .custom-cursor {
     box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
 }
 
+/* --- Style du cercle photo dans À Propos --- */
+.about-photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-circle {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-blue);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-circle:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
+}
+
+.photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: contrast(1.05) brightness(1.02);
+}
+
+/* --- Style de la section Compétences & Marquee --- */
+.skills-marquee-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 25px 0;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-top: 20px;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.skills-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    will-change: transform;
+    animation: scrollMarquee 30s linear infinite;
+}
+
+.skills-track:hover {
+    animation-play-state: paused;
+}
+
+.skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(31, 41, 55, 0.6);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.skill-badge:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 .glitch-text {
     position: relative;
     color: var(--accent-blue);
@@ -706,13 +796,11 @@ body.hovering .custom-cursor {
    RÈGLES RESPONSIVES STRICTES (MOBILE & TABLETTE)
    ========================================== */
 @media (max-width: 768px) {
-    /* Forçage global de box-sizing et max-width sur tous les éléments du DOM */
     *, *::before, *::after {
         box-sizing: border-box !important;
         max-width: 100% !important;
     }
 
-    /* Verrouillage absolu de la largeur pour empêcher le défilement horizontal */
     html, body {
         overflow-x: hidden !important;
         width: 100% !important;
@@ -722,7 +810,6 @@ body.hovering .custom-cursor {
         position: relative !important;
     }
 
-    /* Masquage du curseur personnalisé sur mobile */
     .custom-cursor {
         display: none !important;
     }
@@ -734,7 +821,6 @@ body.hovering .custom-cursor {
         overflow-x: hidden !important;
     }
 
-    /* Header mobile fixé en mode normal (position: relative) pour épouser l'écran */
     header {
         position: relative !important;
         flex-direction: column !important;
@@ -768,7 +854,6 @@ body.hovering .custom-cursor {
         letter-spacing: -0.5px !important;
     }
 
-    /* Section Hero */
     .hero {
         padding: 40px 0 30px 0 !important;
         min-height: auto !important;
@@ -808,7 +893,6 @@ body.hovering .custom-cursor {
         display: none !important;
     }
 
-    /* Forçage des grilles et des conteneurs en une seule colonne 100% sécurisée */
     .about-grid,
     .contact-container,
     .form-group,

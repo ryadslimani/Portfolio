@@ -114,7 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
     animateCursor();
 
-    document.querySelectorAll('a, button, input, textarea, .card').forEach(element => {
+    // Ajout de '.skill-badge' pour activer l'effet du curseur sur les compétences
+    document.querySelectorAll('a, button, input, textarea, .card, .skill-badge').forEach(element => {
         element.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
         element.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
     });
