@@ -932,6 +932,6 @@ body.hovering .custom-cursor {
     }
 
     .skills-track {
-        animation: scrollMarquee 5s linear infinite !important; /* Passage de 15s à 8s pour l'accélérer */
+        animation: scrollMarquee 2s linear infinite !important; /* Passage de 15s à 8s pour l'accélérer */
     }
 }
