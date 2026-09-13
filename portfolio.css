@@ -351,19 +351,19 @@ h2 {
 }
 
 .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 280px; /* Texte à gauche, photo à droite sur PC */
-    gap: 40px;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    gap: 40px;
     margin-bottom: 50px;
 }
 
 .about-text {
-    grid-column: 1;
+    flex: 1;
 }
 
 .about-photo-container {
-    grid-column: 2;
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -372,32 +372,6 @@ h2 {
 .about-text p {
     color: var(--text-muted);
     margin-bottom: 15px;
-}
-
-.terminal-box-sm {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 20px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    overflow-x: auto;
-}
-
-.t-line {
-    margin: 8px 0;
-}
-
-.t-prompt {
-    color: var(--accent-blue);
-}
-
-.text-muted {
-    color: var(--text-muted);
-}
-
-.text-green {
-    color: var(--accent-blue);
 }
 
 .system-metrics {
@@ -555,10 +529,21 @@ footer {
     height: 12px;
     background-color: var(--accent-blue);
     border-radius: 50%;
-    pointer-events: none;
+    pointer-events: none !important;
     box-shadow: 0 0 10px var(--accent-blue), 0 0 20px var(--accent-blue);
-    z-index: 9999;
+    z-index: 2147483647 !important;
     transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.skills-marquee-container, .skills-track {
+    isolation: isolate;
+}
+
+.skills-marquee-container, 
+.skills-track, 
+.skill-badge {
+    position: relative;
+    z-index: 1;
 }
 
 body.hovering .custom-cursor {
@@ -647,7 +632,6 @@ body.hovering .custom-cursor {
     box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
 }
 
-/* --- Style du cercle photo dans À Propos --- */
 .photo-circle {
     position: relative;
     width: 260px;
@@ -672,7 +656,6 @@ body.hovering .custom-cursor {
     filter: contrast(1.05) brightness(1.02);
 }
 
-/* --- Style de la section Compétences & Marquee --- */
 .skills-marquee-container {
     overflow: hidden;
     width: 100%;
@@ -723,12 +706,8 @@ body.hovering .custom-cursor {
 }
 
 @keyframes scrollMarquee {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .glitch-text {
@@ -797,9 +776,6 @@ body.hovering .custom-cursor {
     100% { transform: skew(0deg); }
 }
 
-/* ==========================================
-   RÈGLES RESPONSIVES STRICTES (MOBILE & TABLETTE)
-   ========================================== */
 @media (max-width: 768px) {
     *, *::before, *::after {
         box-sizing: border-box !important;
@@ -931,7 +907,6 @@ body.hovering .custom-cursor {
         width: 100% !important;
     }
 
-    /* Force l'ordre des éléments sur mobile : Photo en premier (order: 1), Texte en second (order: 2) */
     .about-wrapper .about-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -956,8 +931,7 @@ body.hovering .custom-cursor {
         height: 200px !important;
     }
 
-    /* Défilement des compétences plus rapide sur mobile (15s au lieu de 30s) */
     .skills-track {
-        animation: scrollMarquee 15s linear infinite !important;
+        animation: scrollMarquee 4s linear infinite !important; /* Passage de 15s à 8s pour l'accélérer */
     }
 }

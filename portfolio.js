@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Curseurs personnalisés ---
+    // --- 1. Gestion propre du curseur personnalisé ---
+    const existingCursor = document.querySelector('.custom-cursor');
+    if (existingCursor) existingCursor.remove();
+
     const cursor = document.createElement('div');
     cursor.classList.add('custom-cursor');
     document.body.appendChild(cursor);
@@ -28,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 2. Effet de frappe (Typing Effect) dans la Hero Section ---
-    const subtitleEl = document.querySelector('.subtitle');
+    const typedTextEl = document.getElementById('typed-text');
     const textsToType = [
         "Bachelor Cybersécurité @ EPITA",
         "Passionné de Sécurité des Systèmes & Réseaux",
@@ -44,27 +47,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentText = textsToType[textIndex];
         
         if (isDeleting) {
-            subtitleEl.textContent = currentText.substring(0, charIndex - 1) + "_";
+            typedTextEl.textContent = currentText.substring(0, charIndex - 1);
             charIndex--;
             typingSpeed = 50;
         } else {
-            subtitleEl.textContent = currentText.substring(0, charIndex + 1) + "_";
+            typedTextEl.textContent = currentText.substring(0, charIndex + 1);
             charIndex++;
             typingSpeed = 100;
         }
 
         if (!isDeleting && charIndex === currentText.length) {
             isDeleting = true;
-            typingSpeed = 2000; // Pause à la fin du mot
+            typingSpeed = 2000;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             textIndex = (textIndex + 1) % textsToType.length;
-            typingSpeed = 500; // Pause avant le prochain mot
+            typingSpeed = 500;
         }
 
         setTimeout(typeWriter, typingSpeed);
     }
-    if (subtitleEl) {
+    if (typedTextEl) {
         setTimeout(typeWriter, 1000);
     }
 
@@ -91,35 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 4. Duplication de la piste pour le Marquee infini des compétences ---
+    // --- 4. Duplication de la piste pour le Marquee infini ---
     const skillsTrack = document.querySelector('.skills-track');
     if (skillsTrack) {
-        // On duplique le contenu pour assurer une boucle fluide sans saccade
         skillsTrack.innerHTML += skillsTrack.innerHTML;
-    }
-
-    // --- 5. Simulation d'envoi du formulaire de contact ---
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = "ENVOI EN COURS...";
-            submitBtn.disabled = true;
-
-            setTimeout(() => {
-                submitBtn.textContent = "MESSAGE TRANSMIS !";
-                submitBtn.style.backgroundColor = "#10b981";
-                contactForm.reset();
-
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.backgroundColor = "";
-                    submitBtn.disabled = false;
-                }, 3000);
-            }, 1200);
-        });
     }
 });
