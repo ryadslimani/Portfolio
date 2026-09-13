@@ -926,4 +926,28 @@ body.hovering .custom-cursor {
     .contact-form .btn-primary {
         width: 100% !important;
     }
+
+    /* Force le réagencement de la section "À Propos" : Photo d'abord, texte ensuite */
+    .about-wrapper .about-grid {
+        display: flex !important;
+        flex-direction: column-reverse !important; /* Met la photo en haut et le texte en bas */
+        align-items: center !important;
+        gap: 20px !important;
+    }
+
+    .about-photo-container {
+        width: 100% !important;
+        justify-content: center !important;
+        margin-bottom: 10px !important;
+    }
+
+    .photo-circle {
+        width: 200px !important; /* Légèrement plus compact sur mobile si besoin */
+        height: 200px !important;
+    }
+
+    /* Accélère le défilement du marquee sur mobile (passe de 30s à 15s) */
+    .skills-track {
+        animation: scrollMarquee 15s linear infinite !important;
+    }
 }
