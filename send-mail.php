@@ -28,8 +28,11 @@ $email_content = "Nom : $name\n";
 $email_content .= "Email : $email\n\n";
 $email_content .= "Message :\n$message\n";
 
-// En-têtes de l'e-mail (pour éviter que ça parte dans les spams et afficher le bon expéditeur)
-$headers = "From: $name <$email>\r\n";
+// En-têtes sécurisés pour éviter le spoofing et réduire le risque de spam
+// Utilisation d'une adresse de ton domaine ou du serveur comme expéditeur technique "From", 
+// tout en plaçant l'e-mail de l'utilisateur dans "Reply-To" pour pouvoir lui répondre directement.
+$domain = $_SERVER['SERVER_NAME'] ?? 'localhost';
+$headers  = "From: no-reply@" . $domain . "\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
@@ -37,7 +40,8 @@ $headers .= "X-Mailer: PHP/" . phpversion();
 if (mail($to, $email_subject, $email_content, $headers)) {
     http_response_code(200);
     // Redirection vers une page de succès ou retour au portfolio avec une ancre
-    header("Location: portfolio.html?success=1#contact");
+    header("Location: index.html?success=1#contact");
+    exit;
 } else {
     http_response_code(500);
     echo "Une erreur est survenue lors de l'envoi du message.";

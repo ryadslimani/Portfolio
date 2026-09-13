@@ -352,10 +352,21 @@ h2 {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 280px; /* Texte à gauche, photo à droite sur PC */
     gap: 40px;
     align-items: center;
     margin-bottom: 50px;
+}
+
+.about-text {
+    grid-column: 1;
+}
+
+.about-photo-container {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-text p {
@@ -637,12 +648,6 @@ body.hovering .custom-cursor {
 }
 
 /* --- Style du cercle photo dans À Propos --- */
-.about-photo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .photo-circle {
     position: relative;
     width: 260px;
@@ -893,7 +898,6 @@ body.hovering .custom-cursor {
         display: none !important;
     }
 
-    .about-grid,
     .contact-container,
     .form-group,
     .system-metrics,
@@ -927,7 +931,7 @@ body.hovering .custom-cursor {
         width: 100% !important;
     }
 
-    /* Force l'ordre des éléments : la photo passe en premier (order: 1), le texte ensuite (order: 2) */
+    /* Force l'ordre des éléments sur mobile : Photo en premier (order: 1), Texte en second (order: 2) */
     .about-wrapper .about-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -937,6 +941,7 @@ body.hovering .custom-cursor {
     .about-photo-container {
         order: 1 !important;
         width: 100% !important;
+        display: flex !important;
         justify-content: center !important;
         margin-bottom: 5px !important;
     }
@@ -951,7 +956,7 @@ body.hovering .custom-cursor {
         height: 200px !important;
     }
 
-    /* Défilement des compétences plus rapide sur mobile */
+    /* Défilement des compétences plus rapide sur mobile (15s au lieu de 30s) */
     .skills-track {
         animation: scrollMarquee 15s linear infinite !important;
     }

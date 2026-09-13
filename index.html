@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Slimani Ryad</title>
-    <!-- Favicon personnalisé (remplace href par ton fichier d'icône si besoin) -->
+    <!-- Favicon personnalisé -->
     <link rel="icon" type="image/png" href="img/RS.png">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio.css">
@@ -102,35 +102,33 @@
         <!-- Section 02 - Compétences -->
         <section id="competences">
             <h2><span class="section-num">02</span> — COMPÉTENCES</h2>
-            <!-- Section Compétences avec les vrais logos SVG officiels -->
-            <!-- Section Compétences sans les icônes, avec le défilement fluide -->
-<div class="skills-marquee-container">
-    <div class="skills-track">
-        <!-- PREMIÈRE SÉRIE -->
-        <div class="skill-badge">HTML / CSS</div>
-        <div class="skill-badge">Bash / Scripting</div>
-        <div class="skill-badge">MySQL / phpMyAdmin</div>
-        <div class="skill-badge">Git / GitHub</div>
-        <div class="skill-badge">Cisco</div>
-        <div class="skill-badge">SysML / UML</div>
-        <div class="skill-badge">Linux / Unix</div>
-        <div class="skill-badge">Python</div>
-        <div class="skill-badge">PHP</div>
-        <div class="skill-badge">JavaScript</div>
+            <div class="skills-marquee-container">
+                <div class="skills-track">
+                    <!-- PREMIÈRE SÉRIE -->
+                    <div class="skill-badge">HTML / CSS</div>
+                    <div class="skill-badge">Bash / Scripting</div>
+                    <div class="skill-badge">MySQL / phpMyAdmin</div>
+                    <div class="skill-badge">Git / GitHub</div>
+                    <div class="skill-badge">Cisco</div>
+                    <div class="skill-badge">SysML / UML</div>
+                    <div class="skill-badge">Linux / Unix</div>
+                    <div class="skill-badge">Python</div>
+                    <div class="skill-badge">PHP</div>
+                    <div class="skill-badge">JavaScript</div>
 
-        <!-- DOUBLE DE LA SÉRIE (Pour un effet infini fluide) -->
-        <div class="skill-badge">HTML / CSS</div>
-        <div class="skill-badge">Bash / Scripting</div>
-        <div class="skill-badge">MySQL / phpMyAdmin</div>
-        <div class="skill-badge">Git / GitHub</div>
-        <div class="skill-badge">Cisco</div>
-        <div class="skill-badge">SysML / UML</div>
-        <div class="skill-badge">Linux / Unix</div>
-        <div class="skill-badge">Python</div>
-        <div class="skill-badge">PHP</div>
-        <div class="skill-badge">JavaScript</div>
-    </div>
-</div>
+                    <!-- DOUBLE DE LA SÉRIE (Pour un effet infini fluide) -->
+                    <div class="skill-badge">HTML / CSS</div>
+                    <div class="skill-badge">Bash / Scripting</div>
+                    <div class="skill-badge">MySQL / phpMyAdmin</div>
+                    <div class="skill-badge">Git / GitHub</div>
+                    <div class="skill-badge">Cisco</div>
+                    <div class="skill-badge">SysML / UML</div>
+                    <div class="skill-badge">Linux / Unix</div>
+                    <div class="skill-badge">Python</div>
+                    <div class="skill-badge">PHP</div>
+                    <div class="skill-badge">JavaScript</div>
+                </div>
+            </div>
         </section>
 
         <!-- Expérience -->
@@ -218,7 +216,7 @@
             </div>
         </section>
 
-        <!-- Contact -->
+        <!-- Contact (Mis à jour pour Web3Forms / GitHub Pages) -->
         <section id="contact">
             <h2><span class="section-num">06 —</span> CONTACT</h2>
             <div class="contact-wrapper">
@@ -243,7 +241,10 @@
                         </div>
                     </div>
                     <div class="contact-form">
-                        <form action="send-mail.php" method="POST">
+                        <form action="https://api.web3forms.com/submit" method="POST">
+                            <!-- Remplace par ta clé d'accès Web3Forms gratuite obtenue sur web3forms.com -->
+                            <input type="hidden" name="access_key" value="41650a27-eca1-41f4-ad47-9dc3d4f1aee7">
+                            
                             <div class="form-group">
                                 <input type="text" name="name" placeholder="Votre nom" required>
                                 <input type="email" name="email" placeholder="votre@email.com" required>
