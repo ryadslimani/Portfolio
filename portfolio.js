@@ -94,9 +94,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 4. Duplication de la piste pour le Marquee infini ---
+    // --- 4. Défilement Infini Fluide par JavaScript (Sans Saccade) ---
     const skillsTrack = document.querySelector('.skills-track');
     if (skillsTrack) {
+        // On duplique le contenu pour pouvoir boucler à l'infini proprement
         skillsTrack.innerHTML += skillsTrack.innerHTML;
+
+        let xPos = 0;
+        // Vitesse du défilement (plus le chiffre est grand, plus c'est rapide)
+        // Ajuste cette valeur si tu veux plus ou moins de vitesse (ex: 1.5 ou 2)
+        const speed = 1.0; 
+        let isPaused = false;
+
+        skillsTrack.addEventListener('mouseenter', () => isPaused = true);
+        skillsTrack.addEventListener('mouseleave', () => isPaused = false);
+        
+        // Support tactile mobile (met en pause au toucher si besoin, ou retire le si tu veux que ça défile toujours)
+        skillsTrack.addEventListener('touchstart', () => isPaused = true);
+        skillsTrack.addEventListener('touchend', () => isPaused = false);
+
+        function step() {
+            if (!isPaused) {
+                xPos -= speed;
+                // Dès qu'on a dépassé la moitié exacte de la piste dupliquée, on réinitialise à 0 instantanément et invisiblement
+                const halfWidth = skillsTrack.scrollWidth / 2;
+                if (Math.abs(xPos) >= halfWidth) {
+                    xPos = 0;
+                }
+                skillsTrack.style.transform = `translate3d(${xPos}px, 0, 0)`;
+            }
+            requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
     }
 });

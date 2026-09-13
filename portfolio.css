@@ -674,11 +674,12 @@ body.hovering .custom-cursor {
     gap: 20px;
     width: max-content;
     will-change: transform;
-    animation: scrollMarquee 30s linear infinite;
+    /* Plus d'animation CSS ici, tout est géré par JS pour une fluidité absolue */
 }
 
 .skills-track:hover {
-    animation-play-state: paused;
+    /* Si tu veux que ça s'arrête au survol */
+    --paused: true;
 }
 
 .skill-badge {
@@ -703,11 +704,6 @@ body.hovering .custom-cursor {
     color: var(--accent-blue);
     box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
     transform: translateY(-2px);
-}
-
-@keyframes scrollMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
 }
 
 .glitch-text {
@@ -929,9 +925,5 @@ body.hovering .custom-cursor {
     .photo-circle {
         width: 200px !important;
         height: 200px !important;
-    }
-
-    .skills-track {
-        animation: scrollMarquee 2s linear infinite !important; /* Passage de 15s à 8s pour l'accélérer */
     }
 }
