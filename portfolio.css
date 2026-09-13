@@ -927,26 +927,31 @@ body.hovering .custom-cursor {
         width: 100% !important;
     }
 
-    /* Force le réagencement de la section "À Propos" : Photo d'abord, texte ensuite */
+    /* Force l'ordre des éléments : la photo passe en premier (order: 1), le texte ensuite (order: 2) */
     .about-wrapper .about-grid {
         display: flex !important;
-        flex-direction: column-reverse !important; /* Met la photo en haut et le texte en bas */
-        align-items: center !important;
+        flex-direction: column !important;
         gap: 20px !important;
     }
 
     .about-photo-container {
+        order: 1 !important;
         width: 100% !important;
         justify-content: center !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .about-text {
+        order: 2 !important;
+        width: 100% !important;
     }
 
     .photo-circle {
-        width: 200px !important; /* Légèrement plus compact sur mobile si besoin */
+        width: 200px !important;
         height: 200px !important;
     }
 
-    /* Accélère le défilement du marquee sur mobile (passe de 30s à 15s) */
+    /* Défilement des compétences plus rapide sur mobile */
     .skills-track {
         animation: scrollMarquee 15s linear infinite !important;
     }
