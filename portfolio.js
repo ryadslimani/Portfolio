@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 2. Effet de frappe (Typing Effect) dans la Hero Section ---
     const typedTextEl = document.getElementById('typed-text');
     const textsToType = [
-        "Bachelor Cybersécurité @ EPITA",
         "Passionné de Sécurité des Systèmes & Réseaux",
         "Développeur Full-Stack & Scripts Python",
         "Créateur de Solutions Numériques"
