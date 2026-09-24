@@ -314,6 +314,50 @@ h2 {
     font-weight: 600;
 }
 
+.btn-under-purple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.btn-under-purple .custom-external-btn {
+    grid-column: 2;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    /* Discret au repos : bordure très fine et texte atténué */
+    color: var(--text-muted);
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    background-color: rgba(43, 20, 28, 0.35);
+    padding: 18px;
+    transition: all 0.4s ease;
+}
+
+/* Effet énigmatique et captivant au survol */
+.btn-under-purple .custom-external-btn:hover {
+    color: var(--suno-orange);
+    border-color: var(--suno-magenta);
+    background-color: rgba(43, 20, 28, 0.85);
+    box-shadow: 0 0 20px rgba(255, 64, 129, 0.25), inset 0 0 10px rgba(255, 112, 67, 0.1);
+    transform: translateY(-2px);
+    letter-spacing: 1px;
+}
+
+/* Adaptation mobile */
+@media (max-width: 1024px) {
+    .btn-under-purple {
+        grid-template-columns: 1fr;
+    }
+    .btn-under-purple .custom-external-btn {
+        grid-column: 1;
+    }
+}
+
 .card h3 {
     margin: 0 0 10px 0;
     font-size: 1.25rem;

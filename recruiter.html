@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[ACCÈS RESTREINT] - Dossier Confidentiel</title>
+    <link rel="stylesheet" href="recruiter-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Écran de chargement initial -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <p class="loader-title">Bienvenue dans le monde du recrutement</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <span class="loader-status">Initialisation du protocole de sécurité...</span>
+        </div>
+    </div>
+
+    <div class="terminal-container">
+        <div class="header-security">
+            <span class="security-badge"><span class="security-dot"></span> INVESTISSEZ SUR LES JEUNES, INVESTISSEZ SUR L'AVENIR</span>
+            <span>STATUS: BYPASSED</span>
+        </div>
+
+        <h1 class="glitch-title">Dépasser les filtres, <span>aller à l'essentiel.</span></h1>
+
+        <p class="matrix-text">
+            Si vous êtes arrivé jusqu'ici, ce n'est pas par hasard. Vous faites partie de ces rares recruteurs qui cherchent à analyser le fond des dossiers, plutôt que de se contenter de lettres de motivation aseptisées et générées à la chaîne par des algorithmes.
+        </p>
+
+        <p class="matrix-text">
+            Soyons lucides : les processus de recrutement actuels noient souvent les compétences sous des piles de CV standardisés. Ici, on court-circuite cette lourdeur administrative. 
+        </p>
+
+        <p class="matrix-text">
+            Puisque vous avez fait l'effort de regarder au-delà des critères de surface, posons les bases : nous sommes une génération jeune, extrêmement motivée et pleine d'envie. Notre ambition est d'étudier, d'apprendre sans cesse et de relever de nouveaux défis techniques. Vous trouverez ici une véritable appétence pour la pratique, une autonomie opérationnelle immédiate sur les infrastructures réseaux et systèmes, et un profil taillé pour produire des résultats concrets.
+        </p>
+
+        <!-- Bloc final avec le titre et le bouton sur la même ligne -->
+        <div class="action-banner">
+            <h2 class="sub-glitch-title">Faites confiance aux jeunes, <span>la prochaine génération est devant vous.</span></h2>
+            <a href="index.html#contact" class="btn-matrix">Lancer la discussion &rarr;</a>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loading-screen');
+                loadingScreen.classList.add('fade-out');
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
