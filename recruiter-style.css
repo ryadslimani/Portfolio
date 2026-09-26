@@ -24,7 +24,7 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center; /* Centré verticalement sur PC */
+    align-items: center;
     min-height: 100vh;
     min-height: -webkit-fill-available;
     margin: 0;
@@ -102,7 +102,7 @@ body {
     pointer-events: none !important;
 }
 
-/* --- ÉCRAN DE SORTIE (AU REVOIR) --- */
+/* --- ÉCRAN DE SORTIE INTERACTIF --- */
 .exit-screen {
     position: fixed;
     inset: 0;
@@ -114,7 +114,7 @@ body {
     align-items: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -126,7 +126,7 @@ body {
 
 .exit-content {
     text-align: center;
-    max-width: 540px;
+    max-width: 620px; /* Élargi pour que la citation tienne sur une largeur confortable */
     width: 100%;
     padding: 40px 30px;
     background: var(--card-bg);
@@ -147,18 +147,36 @@ body {
 }
 
 .exit-message {
-    font-size: 1rem;
+    font-size: 0.95rem; /* Légèrement ajusté pour l'harmonie */
     line-height: 1.7;
-    color: var(--text-main);
-    margin-bottom: 25px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
     font-weight: 400;
 }
 
-.exit-redirect {
+.exit-quote {
+    display: inline-block;
+    color: var(--text-main);
+    font-style: italic;
+    line-height: 1.6;
+    text-shadow: 0 0 10px rgba(241, 245, 249, 0.15);
+    white-space: normal;
+}
+
+.exit-signature {
+    display: inline-block;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent-red);
     letter-spacing: 1px;
+    margin-top: 5px;
+    text-shadow: 0 0 10px rgba(255, 59, 48, 0.4);
+}
+
+.exit-action-btn {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* --- CONTENEUR PRINCIPAL --- */
@@ -342,6 +360,7 @@ body {
     white-space: nowrap;
     position: relative;
     z-index: 3;
+    cursor: pointer;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -356,7 +375,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* --- APPARITION EN CASCADE APRÈS LE CHARGEMENT --- */
 @keyframes slideUpLayer {
     0% {
         opacity: 0;
@@ -383,11 +401,10 @@ body {
 .matrix-text:nth-of-type(3) { animation-delay: 5.0s; }
 .action-banner { animation-delay: 5.2s; }
 
-/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
     body {
         padding: 15px 10px;
-        align-items: flex-start; /* Aligné en haut uniquement sur mobile pour éviter les soucis de scroll */
+        align-items: flex-start;
     }
 
     .terminal-container {

@@ -20,12 +20,17 @@
         </div>
     </div>
 
-    <!-- Écran de sortie / au revoir -->
+    <!-- Écran de sortie interactif -->
     <div id="exit-screen" class="exit-screen">
         <div class="exit-content">
             <p class="exit-title">[ FIN DE TRANSMISSION ]</p>
-            <p class="exit-message">Vous quittez cette page. Laissez le temps à ces quelques lignes de résonner : si vous cherchez un profil guidé par le concret, la technique et l'envie d'apprendre, poursuivons l'échange en toute simplicité.</p>
-            <span class="exit-redirect">Redirection en cours...</span>
+            <p class="exit-message">
+                Vous quittez cette page, laissez le temps à ces quelques lignes de résonner :<br><br>
+                <span class="exit-quote">« Si vous cherchez un profil guidé par le concret, la technique et l'envie d'apprendre, poursuivons l'échange en toute simplicité. »</span><br><br>
+                <span class="exit-signature">~ SLIMANI Ryad ~</span>
+            </p>
+            
+            <a href="index.html#contact" class="btn-matrix exit-action-btn">Retour au Portfolio →</a>
         </div>
     </div>
 
@@ -46,18 +51,16 @@
         </p>
 
         <p class="matrix-text">
-            Puisque vous avez fait l'effort de regarder au-delà des critères de surface, posons les bases : nous sommes une génération jeune, extrêmement motivée et pleine d'envie. Notre ambition est d'étudier, d'apprendre sans cesse et de relever de nouveaux défis techniques. Vous trouverez ici une véritable appétence pour la pratique, une autonomie opérationnelle immédiate sur les infrastructures réseaux et systèmes, et un profil taillé pour produire des résultats concrets.
+            Puisque vous avez fait l'effort de regarder au-delà des critères de surface, posons les bases : nous sommes une génération jeune, extrêmement motivée et pleine d'envie. Notre ambition est d'étudier, d'apprendre sans cesse et de relever de nouveaux défis techniques. Vous trouverez ici une véritable appétence pour la pratique, une autonomie opérationnelle immédiate sur les infrastructures réseaux et systèmes, et un profil taillé pour produire des résultats concrets et efficaces.
         </p>
 
-        <!-- Bloc final avec le titre et le bouton sur la même ligne -->
         <div class="action-banner">
             <h2 class="sub-glitch-title">Faites confiance aux jeunes, <span>la prochaine génération est devant vous.</span></h2>
-            <a href="index.html#contact" class="btn-matrix">Lancer la discussion &rarr;</a>
+            <button type="button" id="open-exit-btn" class="btn-matrix">Lancer la discussion →</button>
         </div>
     </div>
 
     <script>
-        // Gestion du chargement initial
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const loadingScreen = document.getElementById('loading-screen');
@@ -65,18 +68,11 @@
             }, 4000);
         });
 
-        // Gestion de l'animation de sortie au clic sur le bouton
-        const contactBtn = document.querySelector('.btn-matrix');
+        const openExitBtn = document.getElementById('open-exit-btn');
         const exitScreen = document.getElementById('exit-screen');
 
-        contactBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // Empêche le changement de page instantané
-            exitScreen.classList.add('active'); // Déclenche l'affichage stylé
-
-            // Laisse le temps au recruteur de lire le message (4 secondes) avant la redirection
-            setTimeout(() => {
-                window.location.href = contactBtn.getAttribute('href');
-            }, 4000);
+        openExitBtn.addEventListener('click', () => {
+            exitScreen.classList.add('active');
         });
     </script>
 </body>
