@@ -35,7 +35,7 @@ body {
     padding: 15px;
 }
 
-/* --- ÉCRAN DE SORTIE INTERACTIF (Masqué par défaut, affiché en bloc au clic) --- */
+/* --- ÉCRAN DE SORTIE INTERACTIF --- */
 .exit-screen {
     position: fixed;
     top: 0;
@@ -45,7 +45,7 @@ body {
     height: 100dvh;
     background: #07090e;
     z-index: 99999;
-    display: none; /* Masqué initialement */
+    display: none; /* Masqué par défaut */
     justify-content: center;
     align-items: center;
     padding: 15px;
@@ -54,7 +54,7 @@ body {
 }
 
 .exit-screen.active {
-    display: flex; /* S'active sans transition */
+    display: flex;
 }
 
 .exit-content {
@@ -257,6 +257,36 @@ body {
     transform: translateY(-2px);
 }
 
+/* --- ANIMATIONS D'APPARITION FLUIDE (UNIQUEMENT SUR PC POUR ÉVITER LES LAGS SUR MOBILE) --- */
+@keyframes slideUpLayer {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 769px) {
+    .header-security, 
+    .glitch-title, 
+    .matrix-text, 
+    .action-banner {
+        opacity: 0;
+        animation: slideUpLayer 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .header-security { animation-delay: 0.1s; }
+    .glitch-title { animation-delay: 0.2s; }
+    .matrix-text:nth-of-type(1) { animation-delay: 0.3s; }
+    .matrix-text:nth-of-type(2) { animation-delay: 0.4s; }
+    .matrix-text:nth-of-type(3) { animation-delay: 0.5s; }
+    .action-banner { animation-delay: 0.6s; }
+}
+
+/* --- RESPONSIVE MOBILE (Affichage instantané, sans latence) --- */
 @media (max-width: 768px) {
     body {
         padding: 10px;
