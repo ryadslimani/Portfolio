@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- Écran de sortie interactif (s'affiche instantanément au clic) -->
+    <!-- Écran de sortie interactif -->
     <div id="exit-screen" class="exit-screen">
         <div class="exit-content">
             <p class="exit-title">[ FIN DE TRANSMISSION ]</p>
@@ -53,7 +53,6 @@
         const openExitBtn = document.getElementById('open-exit-btn');
         const exitScreen = document.getElementById('exit-screen');
 
-        // Affichage instantané au clic
         openExitBtn.addEventListener('click', () => {
             exitScreen.style.display = 'flex';
         });
