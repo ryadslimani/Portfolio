@@ -257,7 +257,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* --- ANIMATIONS D'APPARITION COMMUMES (PC ET MOBILE) --- */
+/* --- ANIMATIONS D'APPARITION FLUIDES (UNIFIÉES PC ET MOBILE VIA .animate-in) --- */
 @keyframes slideUpLayer {
     0% {
         opacity: 0;
@@ -269,19 +269,17 @@ body {
     }
 }
 
-.header-security, 
-.glitch-title, 
-.matrix-text, 
-.action-banner {
+.animate-in {
+    opacity: 0;
     animation: slideUpLayer 0.4s ease forwards;
 }
 
-.header-security { animation-delay: 0.05s; }
-.glitch-title { animation-delay: 0.1s; }
-.matrix-text:nth-of-type(1) { animation-delay: 0.15s; }
-.matrix-text:nth-of-type(2) { animation-delay: 0.2s; }
-.matrix-text:nth-of-type(3) { animation-delay: 0.25s; }
-.action-banner { animation-delay: 0.3s; }
+.header-security.animate-in { animation-delay: 0.05s; }
+.glitch-title.animate-in { animation-delay: 0.1s; }
+.matrix-text.animate-in:nth-of-type(1) { animation-delay: 0.15s; }
+.matrix-text.animate-in:nth-of-type(2) { animation-delay: 0.2s; }
+.matrix-text.animate-in:nth-of-type(3) { animation-delay: 0.25s; }
+.action-banner.animate-in { animation-delay: 0.3s; }
 
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
