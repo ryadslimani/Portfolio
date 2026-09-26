@@ -9,18 +9,7 @@
 </head>
 <body>
 
-    <!-- Écran de chargement initial -->
-    <div id="loading-screen">
-        <div class="loader-content">
-            <p class="loader-title">Bienvenue dans le monde du recrutement</p>
-            <div class="progress-bar-container">
-                <div class="progress-bar-fill"></div>
-            </div>
-            <span class="loader-status">Initialisation du protocole de sécurité...</span>
-        </div>
-    </div>
-
-    <!-- Écran de sortie interactif -->
+    <!-- Écran de sortie interactif (S'active instantanément au clic) -->
     <div id="exit-screen" class="exit-screen">
         <div class="exit-content">
             <p class="exit-title">[ FIN DE TRANSMISSION ]</p>
@@ -61,18 +50,12 @@
     </div>
 
     <script>
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const loadingScreen = document.getElementById('loading-screen');
-                loadingScreen.classList.add('fade-out');
-            }, 4000);
-        });
-
         const openExitBtn = document.getElementById('open-exit-btn');
         const exitScreen = document.getElementById('exit-screen');
 
+        // Affichage direct de l'écran de sortie sans animation
         openExitBtn.addEventListener('click', () => {
-            exitScreen.classList.add('active');
+            exitScreen.style.display = 'flex';
         });
     </script>
 </body>
