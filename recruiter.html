@@ -20,6 +20,15 @@
         </div>
     </div>
 
+    <!-- Écran de sortie / au revoir -->
+    <div id="exit-screen" class="exit-screen">
+        <div class="exit-content">
+            <p class="exit-title">[ FIN DE TRANSMISSION ]</p>
+            <p class="exit-message">Vous quittez cette page. Laissez le temps à ces quelques lignes de résonner : si vous cherchez un profil guidé par le concret, la technique et l'envie d'apprendre, poursuivons l'échange en toute simplicité.</p>
+            <span class="exit-redirect">Redirection en cours...</span>
+        </div>
+    </div>
+
     <div class="terminal-container">
         <div class="header-security">
             <span class="security-badge"><span class="security-dot"></span> INVESTISSEZ SUR LES JEUNES, INVESTISSEZ SUR L'AVENIR</span>
@@ -48,10 +57,25 @@
     </div>
 
     <script>
+        // Gestion du chargement initial
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const loadingScreen = document.getElementById('loading-screen');
                 loadingScreen.classList.add('fade-out');
+            }, 4000);
+        });
+
+        // Gestion de l'animation de sortie au clic sur le bouton
+        const contactBtn = document.querySelector('.btn-matrix');
+        const exitScreen = document.getElementById('exit-screen');
+
+        contactBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Empêche le changement de page instantané
+            exitScreen.classList.add('active'); // Déclenche l'affichage stylé
+
+            // Laisse le temps au recruteur de lire le message (4 secondes) avant la redirection
+            setTimeout(() => {
+                window.location.href = contactBtn.getAttribute('href');
             }, 4000);
         });
     </script>
