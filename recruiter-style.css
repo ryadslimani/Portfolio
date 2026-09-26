@@ -10,6 +10,10 @@
     --accent-glow: rgba(255, 59, 48, 0.18);
 }
 
+html {
+    height: -webkit-fill-available;
+}
+
 body {
     background-color: var(--bg-base);
     background-image: 
@@ -20,11 +24,13 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Aligné en haut pour permettre un scroll propre */
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     margin: 0;
-    overflow-y: auto; /* CORRIGÉ : Autorise le défilement vertical sur la page */
-    padding: 40px 20px; /* Ajout d'une marge de sécurité haut/bas */
+    overflow-y: auto; /* Autorise le scroll vertical */
+    -webkit-overflow-scrolling: touch; /* Scroll fluide sur iOS */
+    padding: 40px 20px;
     box-sizing: border-box;
 }
 
@@ -93,6 +99,7 @@ body {
 .fade-out {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none; /* Empêche le chargement de bloquer les clics et le scroll une fois masqué */
 }
 
 /* --- CONTENEUR PRINCIPAL --- */
@@ -108,7 +115,7 @@ body {
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     backdrop-filter: blur(20px);
-    overflow: hidden;
+    margin-bottom: 40px; /* Marge en bas pour ne pas coller au bord du téléphone */
 }
 
 /* Liseré lumineux rouge de sécurité en haut de la carte */
@@ -292,7 +299,7 @@ body {
 }
 
 /* --- APPARITION EN CASCADE APRÈS LE CHARGEMENT --- */
-@keyframes slideUpReveal {
+@keyframes slideUpLayer {
     0% {
         opacity: 0;
         transform: translateY(20px);
@@ -308,47 +315,30 @@ body {
 .matrix-text, 
 .action-banner {
     opacity: 0;
-    animation: slideUpReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: slideUpLayer 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.header-security {
-    animation-delay: 4.2s;
-}
+.header-security { animation-delay: 4.2s; }
+.glitch-title { animation-delay: 4.4s; }
+.matrix-text:nth-of-type(1) { animation-delay: 4.6s; }
+.matrix-text:nth-of-type(2) { animation-delay: 4.8s; }
+.matrix-text:nth-of-type(3) { animation-delay: 5.0s; }
+.action-banner { animation-delay: 5.2s; }
 
-.glitch-title {
-    animation-delay: 4.4s;
-}
-
-.matrix-text:nth-of-type(1) {
-    animation-delay: 4.6s;
-}
-
-.matrix-text:nth-of-type(2) {
-    animation-delay: 4.8s;
-}
-
-.matrix-text:nth-of-type(3) {
-    animation-delay: 5.0s;
-}
-
-.action-banner {
-    animation-delay: 5.2s;
-}
-
-/* --- RESPONSIVE MOBILE (CORRECTIONS D'ESPACEMENT & SCROLL) --- */
+/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
     body {
-        align-items: flex-start;
-        padding: 20px 12px;
+        padding: 15px 10px;
     }
 
     .terminal-container {
-        padding: 25px 18px;
+        padding: 22px 15px;
         border-radius: 15px;
+        margin-bottom: 30px;
     }
 
     .glitch-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .matrix-text {
