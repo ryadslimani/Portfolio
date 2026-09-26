@@ -23,7 +23,9 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    overflow: hidden;
+    overflow-y: auto; /* CORRIGÉ : Autorise le défilement vertical sur la page */
+    padding: 40px 20px; /* Ajout d'une marge de sécurité haut/bas */
+    box-sizing: border-box;
 }
 
 /* --- ÉCRAN DE CHARGEMENT INITIAL --- */
@@ -137,7 +139,7 @@ body {
     );
     background-size: 100% 4px;
     pointer-events: none;
-    z-index: 1; /* Reste en dessous du bouton */
+    z-index: 1;
     opacity: 0.4;
     animation: scanlines 10s linear infinite;
 }
@@ -259,7 +261,6 @@ body {
     flex: 1;
 }
 
-/* Bouton propre avec z-index pour passer par-dessus les scanlines et éviter les traits */
 .btn-matrix {
     display: inline-flex;
     align-items: center;
@@ -332,4 +333,37 @@ body {
 
 .action-banner {
     animation-delay: 5.2s;
+}
+
+/* --- RESPONSIVE MOBILE (CORRECTIONS D'ESPACEMENT & SCROLL) --- */
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        padding: 20px 12px;
+    }
+
+    .terminal-container {
+        padding: 25px 18px;
+        border-radius: 15px;
+    }
+
+    .glitch-title {
+        font-size: 1.5rem;
+    }
+
+    .matrix-text {
+        font-size: 0.9rem;
+    }
+
+    .action-banner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .btn-matrix {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
 }
