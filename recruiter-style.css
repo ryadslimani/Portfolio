@@ -24,12 +24,12 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Aligné en haut pour permettre un scroll propre */
+    align-items: flex-start;
     min-height: 100vh;
     min-height: -webkit-fill-available;
     margin: 0;
-    overflow-y: auto; /* Autorise le scroll vertical */
-    -webkit-overflow-scrolling: touch; /* Scroll fluide sur iOS */
+    overflow-y: auto !important; /* Force le scroll vertical sur mobile et PC */
+    -webkit-overflow-scrolling: touch; /* Scroll fluide iOS */
     padding: 40px 20px;
     box-sizing: border-box;
 }
@@ -99,7 +99,7 @@ body {
 .fade-out {
     opacity: 0;
     visibility: hidden;
-    pointer-events: none; /* Empêche le chargement de bloquer les clics et le scroll une fois masqué */
+    pointer-events: none !important; /* Libère complètement le tactile et le scroll une fois terminé */
 }
 
 /* --- CONTENEUR PRINCIPAL --- */
@@ -115,7 +115,8 @@ body {
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     backdrop-filter: blur(20px);
-    margin-bottom: 40px; /* Marge en bas pour ne pas coller au bord du téléphone */
+    margin-bottom: 60px; /* Marge importante en bas pour éviter l'obstruction par la barre du navigateur mobile */
+    box-sizing: border-box;
 }
 
 /* Liseré lumineux rouge de sécurité en haut de la carte */
@@ -329,12 +330,13 @@ body {
 @media (max-width: 768px) {
     body {
         padding: 15px 10px;
+        align-items: flex-start;
     }
 
     .terminal-container {
         padding: 22px 15px;
         border-radius: 15px;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
 
     .glitch-title {
